@@ -1,0 +1,42 @@
+body {
+    padding: 30px 10px 0px 10px;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+
+    /*
+    padding-bottom: 100%;
+    overflow: hidden;
+    */
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.line {
+    fill: none;
+    stroke: blue;
+    stroke-width: 1.5px;
+}
+
+#used {
+    stroke: red;
+}
+
+#available {
+    stroke: green;
+}
+
+#days-left {
+    stroke: yellow;
+    stroke-width: 0.9px;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Datenverbrauch</title>
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- menu bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Datenverbrauch</a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" role="tablist">
+            <li role="presentation" class="active"><a href="#actual" aria-controls="actual" role="tab" data-toggle="tab">Aktuell</a></li>
+            <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">Entwicklung</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#help">Hilfe</a></li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+    
+    <!-- help "popup" -->
+    <div class="modal fade" id="help" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" arial-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <p class="lead"><em>Datenverbrauch</em> zeigt die Datennutzung unserer UTMS Karte im Hackspace an.</p>
+            <p>Die angezeigten Daten sind <strong>keine</strong> live Daten von der Fritzbox / vom Provider sondern werden derzeit einmal pro Stunde beim Provider abgegriffen.</p>
+            <p>
+              Neben dem aktuellen Verbrauch (in Rot) und dem noch zur Verfügung stehenden Datenguthaben (in Grün) wird die Restdauer
+              in Tagen (in Gelb) für den aktuell laufenden Zeitraum angezeigt.
+            </p>
+            <p>
+              <hr/>
+              <h4>Den Code findest du auf Github:</h4>
+              <dl>
+                <dt>diese Website</dt>
+                <dd><a href="https://github.com/section77/datenverbrauch-frontend">section77/datenverbrauch-frontend</a></dd>
+                <dt>Backend welches die Daten beim Provider abgreift</dt>
+                <dd><a href="https://github.com/section77/datenverbrauch">section77/datenverbrauch</a></dd>
+              </dl>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    
+    <!-- site content -->
+    <div class="tab-content">
+
+      <!-- actual chart -->
+      <div role="tabpanel" class="tab-pane active" id="actual">
+        <h2 class="page-header">Aktuell <small>(<span id="timestamp"></span>)</small></h2>
+        <div id="actual-container" class="svg-container"></div>
+      </div>
+
+      
+      <!-- history chart -->
+      <div role="tabpanel" class="tab-pane" id="history">
+        <h2 class="page-header">
+          Entwicklung
+          <small>
+            <div id="hist-range" class="btn-group" data-toggle="buttons">
+              <label class="btn btn-default active">diesen Monat
+                <input type="radio" name="range" id="this-month" autocomplete="off" checked>
+              </label>
+              <label class="btn btn-default">letzten Monat
+                <input type="radio" name="range" id="last-month" autocomplete="off">
+              </label>
+            </div>
+          </small>
+        </h2>
+        <div id="history-container" class="svg-container"></div>
+      </div>
+    </div>
+    
+
+
+    <script src="libs/jquery-3.1.1.min.js"></script>
+    <script src="libs/d3.v4.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="actualChart.js"></script>
+    <script src="historyChart.js"></script>  
+    <script src="app.js"></script>
+  </body>  
+</html>
