@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="80">
+<rect y="10" width="10" height="10" style="fill:red"/>    <text x="20"  y="20" >used</text>
+<rect y="30" width="10" height="10" style="fill:green"/>  <text x="20"  y="40" >available</text>
+<rect y="50" width="10" height="10" style="fill:yellow"/> <text x="20"  y="60" >days left</text>
+</svg>
