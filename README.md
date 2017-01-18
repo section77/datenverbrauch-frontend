@@ -4,11 +4,12 @@
 This website displays the extracted data from the generated csv.
 
 
-<table>
-  <tr><td width="10" style="background-color:red;"><td>used</td></tr>
-  <tr><td width="10" style="background-color:green;"><td>available</td></tr>
-  <tr><td width="10" style="background-color:yellow;"><td>days left</td></tr>
-</table>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="80">
+<rect y="10" width="10" height="10" style="fill:red"/>    <text x="20"  y="20" >used</text>
+<rect y="30" width="10" height="10" style="fill:green"/>  <text x="20"  y="40" >available</text>
+<rect y="50" width="10" height="10" style="fill:yellow"/> <text x="20"  y="60" >days left</text>
+</svg>
+
 
 ### Actual Usage
 ![Actual](docs/screenshot-actual.png)
