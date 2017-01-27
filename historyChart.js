@@ -45,7 +45,7 @@ function drawHistoryChart(data){
     .call(d3.axisBottom(x));
 
   // configure left y-axis for the 'usage' and draw it
-  yUsage.domain([0, d3.max(data, function(d){ return d.available })]);  
+  yUsage.domain([0, d3.max(data, function(d){ return +d.available })]);  
   svg.append("g")
     .attr("class", "axis axis-y y-usage")
     .call(d3.axisLeft(yUsage));
@@ -59,7 +59,7 @@ function drawHistoryChart(data){
   
 
   // configure right y-axis for 'days-left' and draw it
-  yDays.domain([0, d3.max(data, function(d){ return d["days-left"] })]);    
+  yDays.domain([0, d3.max(data, function(d){ return +d["days-left"] })]);
   var yy = svg.append("g")
       .attr("class", "axis axis-y y-days")
       .attr("transform", "translate(" + width + " ,0)")   
