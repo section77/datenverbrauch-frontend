@@ -12,27 +12,33 @@ d3.csv(filename, function(err, data){
   // draw the 'actual chart'
   //
 
-  
+
   // use the row from the file for the 'actual' data
   var last = data[data.length - 1];
 
   // add the timestamp to the page
   var formatTimestamp = d3.timeFormat("%d.%m.%Y %H:%M");
   d3.select("#timestamp")
-    .text(formatTimestamp(new Date(last.timestamp)));
+    .text(formatTimestamp(new Date(last.timestamp)))
+    .call(function(d) {
+      if(d3.timeDay.count(new Date(last.timestamp), today) > 0) {
+        d.style("color", "red");
+      };
+    });
+
 
   // draw the chart
   drawActualChart(last);
 
 
-  
+
 
   //
   // draw the 'history chart'
   //
   fetchAndDrawHistoryChartForDate(today);
-});  
-  
+});
+
 
 
 
